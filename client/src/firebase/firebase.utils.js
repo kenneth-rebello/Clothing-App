@@ -13,6 +13,33 @@ const config = {
     measurementId: "G-EJ906H64P4"
 }
 
+export const createUserProfile = async (userAuth, additionalData) => {
+
+    if(userAuth){
+        const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+        const snapShot = await userRef.get();
+        if(!snapShot.exists){
+
+            const { displayName, email } = userAuth;
+            const createdAt = new Date();
+
+            try {
+                await userRef.set({
+                    displayName,
+                    email,
+                    createdAt,
+                    ...additionalData
+                })
+            }catch(err){
+                console.log('Error creating message'+err.message)
+            }
+        }
+        return userRef;
+    }
+
+}
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();

@@ -28,7 +28,7 @@ export class Directory extends Component {
                 },
                 {
                     title: 'Womens',
-                    imageUrl: 'https://cdn.wallpapersafari.com/11/50/UgVIRk.jpg',
+                    imageUrl: 'https://todateen.com.br/wp-content/uploads/2018/10/lili-reinhart-tem-novo-crush-descubra.jpg',
                     size: 'large',
                     id: 4,
                     linkUrl:'/womens'
