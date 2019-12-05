@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import FormInput from './FormInput';
-import Button from '../button/Button'
+import FormInput from '../utils/form-input/FormInput';
+import Button from '../utils/button/Button'
 
 import {auth, createUserProfile } from '../../firebase/firebase.utils';
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './sign-in.styles.scss';
 
-import FormInput from './FormInput';
-import Button from '../button/Button';
+import FormInput from '../utils/form-input/FormInput';
+import Button from '../utils/button/Button';
 
 import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
 
