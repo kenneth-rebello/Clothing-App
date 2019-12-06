@@ -1,5 +1,5 @@
-const SHOP_DATA = [
-  {
+const SHOP_DATA = {
+  hats:{
     id: 1,
     title: 'Hats',
     routeName: 'hats',
@@ -60,7 +60,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  sneakers:{
     id: 2,
     title: 'Sneakers',
     routeName: 'sneakers',
@@ -115,7 +115,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  jackets:{
     id: 3,
     title: 'Jackets',
     routeName: 'jackets',
@@ -152,7 +152,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  womens:{
     id: 4,
     title: 'Womens',
     routeName: 'womens',
@@ -198,10 +198,41 @@ const SHOP_DATA = [
         name: 'White Blouse',
         imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
         price: 20
-      }
+      },
+      {
+        id:38,
+        name: 'Checked Overcoat',
+        imageUrl: 'http://www.stylishfashionme.com/wp-content/uploads/2019/03/2-5-831x1024.jpg',
+        price: 250
+      },
+      {
+        id:39,
+        name: 'Blue Dress',
+        imageUrl: 'https://www.gotceleb.com/wp-content/uploads/photos/jessica-clements/rimowa-x-alexandre-arnault-pop-up-event-in-la/Jessica-Clements:-Rimowa-x-Alexandre-Arnault-Pop-Up-Event--01-662x993.jpg',
+        price: 150
+      },
+      {
+        id:40,
+        name: 'Blue Denim',
+        imageUrl: 'https://i.pinimg.com/originals/fc/e4/7d/fce47df177bc92dd59c14f9fbb32dd3b.jpg',
+        price: 150
+      },
+      {
+        id:42,
+        name: 'White Sweater',
+        imageUrl: 'https://i.pinimg.com/originals/59/3b/bb/593bbbce9ea515806de32e464de0181a.jpg',
+        price: 150
+      },
+      {
+        id:43,
+        name: 'Grey Tie-Up',
+        imageUrl: 'http://picture-cdn.wheretoget.it/ah76cq-l-610x610--jessica+clements-grey-tie-low+cut.jpg',
+        price: 150
+      }      
+
     ]
   },
-  {
+  mens:{
     id: 5,
     title: 'Mens',
     routeName: 'mens',
@@ -241,9 +272,45 @@ const SHOP_DATA = [
         name: 'Burgundy T-shirt',
         imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
         price: 25
+      },
+      {
+        id: 42,
+        name: 'Red Sweater',
+        imageUrl: 'http://m.blkfz.com/uploads/201920971/red-sweater-mens-fashion27440103186.png',
+        price: 35
+      },
+      {
+        id: 43,
+        name: 'Checked Shirt',
+        imageUrl: 'https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/2116968/2018/9/18/42973b63-44a9-489a-b75f-572420202e2f1537242959334-Roadster-Men-Maroon--Navy-Blue-Slim-Fit-Checked-Casual-Shirt-2081537242959073-1.jpg',
+        price: 25
+      },
+      {
+        id: 44,
+        name: 'Shirt Hoodie',
+        imageUrl: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/9/9/038cf4e6-34ba-4fa7-ae3d-3356192c9e0c1568048285665-1.jpg',
+        price: 80
+      },
+      {
+        id: 45,
+        name: 'Green Hoodie',
+        imageUrl: 'https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/6832928/2018/9/3/b30d609c-3a1e-4931-b964-890673761c5a1535967696376-WROGN-Men-Black-Printed-Hooded-Sweatshirt-7391535967695201-1.jpg',
+        price: 150
+      },
+      {
+        id: 46,
+        name: 'Red T-shirt',
+        imageUrl: 'https://i.pinimg.com/originals/78/2d/6b/782d6b571679572dab03161c1cb37ffc.jpg',
+        price: 25
+      },
+      {
+        id: 47,
+        name: 'Red Kurta',
+        imageUrl: 'https://www.dealsmagnet.com/Assets/Product/2019/May/22/Deal_13omY4hc.jpg',
+        price: 30
       }
     ]
   }
-];
+};
 
 export default SHOP_DATA;
