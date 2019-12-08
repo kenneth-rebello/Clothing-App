@@ -11,7 +11,7 @@ export class Shop extends Component {
         const {match} = this.props;
 
         return (
-            <div className="shop-page">
+            <div>
                 <Route exact path={`${match.path}`} component={CollectionOverview}/>
                 <Route path={`${match.path}/:collectionId`} component={Collection}/>
             </div>

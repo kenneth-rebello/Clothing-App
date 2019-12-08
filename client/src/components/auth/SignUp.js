@@ -4,8 +4,7 @@ import FormInput from '../utils/form-input/FormInput';
 import Button from '../utils/button/Button'
 
 import {auth, createUserProfile } from '../../firebase/firebase.utils';
-
-import './sign-up.styles.scss';
+import { SignupDiv, Title } from './sign-up.styles';
 
 export class SignUp extends Component {
 
@@ -57,10 +56,10 @@ export class SignUp extends Component {
         const {displayName, email, password, confirmPassword} = this.state;
 
         return (
-            <div className="sign-up">
-                <h2 className="title">I do not have an account</h2>
+            <SignupDiv>
+                <Title>I do not have an account</Title>
                 <span>Sign Up with your email</span>
-                <form className="sign-up-form" onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <FormInput
                         type="text"
                         name="displayName"
@@ -95,7 +94,7 @@ export class SignUp extends Component {
                     />
                     <Button type="submit">Sign Up</Button>
                 </form>
-            </div>
+            </SignupDiv>
         )
     }
 }

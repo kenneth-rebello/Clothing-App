@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './collections-overview.styles.scss';
 import { selectShopDataForPreview } from '../../redux/selectors/shop.selector';
 import { createStructuredSelector } from 'reselect';
 
 import PreviewCollection from './PreviewCollection';
+import { Overview } from './collections-overview.styles';
 
 export class CollectionOverview extends Component {
 
@@ -12,11 +12,11 @@ export class CollectionOverview extends Component {
         const {collections} = this.props;
         
         return (
-            <div>
+            <Overview>
                 {collections.map(({id, ...otherCollectionProps}) => (
                     <PreviewCollection key={id} {...otherCollectionProps}/>
                 ))}
-            </div>
+            </Overview>
         )
     }
 }

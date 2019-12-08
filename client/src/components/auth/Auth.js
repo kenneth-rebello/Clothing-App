@@ -1,15 +1,15 @@
 import React from 'react'
-import './auth.styles.scss'
-
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
+import {AuthDiv} from './auth.styles';
+
 const Auth = () => {
     return (
-        <div className="sign-in-and-sign-up">
+        <AuthDiv>
             <SignIn/>
             <SignUp/>
-        </div>
+        </AuthDiv>
     )
 }
 

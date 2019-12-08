@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import './sign-in.styles.scss';
 
 import FormInput from '../utils/form-input/FormInput';
 import Button from '../utils/button/Button';
 
 import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
+import { SigninDiv, Title, ButtonsDiv } from './sign-in.styles';
 
 export class SignIn extends Component {
 
@@ -38,8 +38,8 @@ export class SignIn extends Component {
 
     render() {
         return (
-            <div className="sign-in">
-                <h2>I already have an account</h2>
+            <SigninDiv>
+                <Title>I already have an account</Title>
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
@@ -54,12 +54,12 @@ export class SignIn extends Component {
                         value={this.state.password} required 
                         handleChange={this.handleChange} 
                         label="Password"/>
-                    <div className="buttons">
+                    <ButtonsDiv className="buttons">
                         <Button type="submit">Sign In</Button>
                         <Button onClick={signInWithGoogle} isGoogleSignIn>Sign In With Google</Button>
-                    </div>
+                    </ButtonsDiv>
                 </form>
-            </div>
+            </SigninDiv>
         )
     }
 }

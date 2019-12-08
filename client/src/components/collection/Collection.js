@@ -1,5 +1,5 @@
 import React from 'react';
-import './collection.styles.scss';
+import {CollectionPage, Title, Items} from './collection.styles.js';
 import {connect} from 'react-redux';
 
 import CollectionItem from './CollectionItem';
@@ -11,12 +11,12 @@ const Collection = ({collection}) => {
     const {title, items} = collection;
 
     return (
-        <div className="collection-page">
-            <h2 className="title">{title}</h2>
-            <div className="items">
+        <CollectionPage>
+            <Title>{title}</Title>
+            <Items>
                 {items.map(item => <CollectionItem key={item.id} item={item}/>)}
-            </div>
-        </div>
+            </Items>
+        </CollectionPage>
     )
 }
 
