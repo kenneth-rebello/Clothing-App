@@ -10,8 +10,9 @@ export const CollectionItemContainer = styled.div`
   position: relative;
   margin-bottom: 2rem;
   &:hover {
-    div {
+    .bg-image {
       opacity: 0.8;
+      border: solid 1px black;
     }
     button {
       opacity: 0.85;
@@ -31,6 +32,7 @@ export const AddButton = styled(Button)`
 export const BackgroundImage = styled.div`
   width: 100%;
   height: 95%;
+  border-radius: 5px;
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;

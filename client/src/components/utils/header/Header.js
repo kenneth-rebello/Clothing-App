@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {HeaderContainer, OptionDiv, OptionLink, OptionsContainer, LogoContainer } from './header.styles.js'
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';

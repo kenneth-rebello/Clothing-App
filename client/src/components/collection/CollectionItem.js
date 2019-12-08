@@ -10,7 +10,7 @@ const CollectionItem = ({ item, addToCart}) => {
 
     return (
         <CollectionItemContainer>
-            <BackgroundImage style={{backgroundImage: `url(${imageUrl})`}} />
+            <BackgroundImage className="bg-image" style={{backgroundImage: `url(${imageUrl})`}} />
             <CollectionFooterContainer >
                 <NameContainer>{name}</NameContainer>
                 <PriceContainer >{price}</PriceContainer>

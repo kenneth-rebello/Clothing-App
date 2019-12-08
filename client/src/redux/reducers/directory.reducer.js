@@ -27,7 +27,7 @@ const initialState = {
         },
         {
             title: 'Mens',
-            imageUrl: 'https://fashionhandbook.co.za/wp-content/uploads/2015/01/david-beckham-modern-essentials-2.jpg',
+            imageUrl: 'https://fashionunited.uk/images/2015/Davidbeckham5.jpg',
             size: 'large',
             id: 5,
             linkUrl:'shop/mens'
