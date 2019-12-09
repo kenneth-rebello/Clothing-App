@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import { MenuItemDiv, ImageContainer, ContentDiv, Title, Subtitle } from './menu-item.styles';
 
 
-function MenuItem({title, imageUrl, size, linkUrl, history, match}) {
+const  MenuItem = ({title, imageUrl, size, linkUrl, history, match}) => {
     return (
         <MenuItemDiv className={`${size} menu-item`} onClick={()=>history.push(`${linkUrl}`)}>
             <ImageContainer className="background-image" style={{backgroundImage: `url(${imageUrl})`}}/>
@@ -13,10 +13,6 @@ function MenuItem({title, imageUrl, size, linkUrl, history, match}) {
             </ContentDiv>
         </MenuItemDiv>
     )
-}
-
-MenuItem.propTypes = {
-
 }
 
 export default withRouter(MenuItem)

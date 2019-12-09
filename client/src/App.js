@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Route,Switch,BrowserRouter as Router, Redirect} from 'react-router-dom';
 import './App.css';
 import {connect} from 'react-redux';
@@ -13,52 +13,46 @@ import {auth, createUserProfile} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/actions/user.actions';
 import { selectCurrentUser } from './redux/selectors/user.selector';
 
-class App extends React.Component {
+const App = ({currentUser, setCurrentUser}) => {
 
-  unsubscribeFromAuth = undefined;
-
-  componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  useEffect(() => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
       if(userAuth){
-        
+          
         const userRef = await createUserProfile(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.props.setCurrentUser({
+          setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
           })
         })
-        this.props.setCurrentUser(userAuth);
+        setCurrentUser(userAuth);
       }
-    })
-  }
+    });
 
-  componentWillUnmount(){
+    return () => {
+      unsubscribeFromAuth();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    this.unsubscribeFromAuth();
 
-  }
-
-  render(){
-    
-    const {currentUser} = this.props;
-
-    return (
-      <div>
-        <Router>
-          <Header/>
-          <Switch>
-            <Route exact path="/" component={Homepage}/>
-            <Route path="/shop" component={Shop}/>
-            <Route exact path="/checkout" component={Checkout}/>
-            <Route path="/signin" render={()=> currentUser ? (<Redirect to="/"/>):<Auth/>}/>
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Router>
+        <Header/>
+        <Switch>
+          <Route exact path="/" component={Homepage}/>
+          <Route path="/shop" component={Shop}/>
+          <Route exact path="/checkout" component={Checkout}/>
+          <Route path="/signin" render={()=> currentUser ? (<Redirect to="/"/>):<Auth/>}/>
+        </Switch>
+      </Router>
+    </div>
+  );
+  
 }
 
 const mapStateToProps = state => ({

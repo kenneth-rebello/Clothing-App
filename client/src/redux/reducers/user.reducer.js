@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER} from '../types';
+import {SET_CURRENT_USER, UNSET_CURRENT_USER} from '../types';
 
 const initialState = {
     currentUser:null
@@ -13,6 +13,11 @@ const userReducer = (state = initialState, action) => {
             return{
                 ...state,
                 currentUser: payload
+            }
+        case UNSET_CURRENT_USER:
+            return{
+                ...state,
+                currentUser: null
             }
         default: 
             return state;

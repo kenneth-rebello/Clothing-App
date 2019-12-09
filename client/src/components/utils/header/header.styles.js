@@ -6,13 +6,19 @@ export const HeaderContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
 `
 
 export const LogoContainer = styled(Link)`
     height: 100%;
     width: 70px;
-    padding: 25px;
+    display:felx;
+    align-items: center;
+    justify-items: center;
+    flex:1;
+    h2{
+        font-size: 1.8rem;
+        margin:0.5rem;
+    }
 `
 
 const OptionContainerStyles = css`
