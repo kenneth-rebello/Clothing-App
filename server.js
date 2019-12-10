@@ -3,7 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require("path");
 
-if(process.env.NODE_ENV !== "production"){
+if(process.env.NODE_ENV != "production"){
     require('dotenv').config();
 }
 
@@ -24,24 +24,27 @@ if(process.env.NODE_ENV === "production"){
     })
 }
 
-app.listen(PORT, error => {
-    if(error)
-        throw error;
-    console.log(`Server running on port ${PORT}`)
-});
 
 app.post('/payment', (req,res) => {
     const body = {
         source: req.body.token.id,
-        amount: req.body.amount,
-        currency: 'usd'
+        amount: parseInt(req.body.amount),
+        currency: 'inr',
+        description:"Charges for crown-clothing"
     }
 
     stripe.charges.create(body, (stripeErr, stripeRes)=>{
-        if(stripeErr){
-            res.status(500).send({error: stripeErr})
+        if(stripeRes){
+            return res.status(200).send({success: stripeRes});
         }else{
-            res.status(200).send({success: stripeRes})
+            console.log(stripeErr)
+            return res.status(500).send({error: stripeErr})
         }
     })
+});
+
+app.listen(PORT, error => {
+    if(error)
+        throw error;
+    console.log(`Server running on port ${PORT}`)
 });

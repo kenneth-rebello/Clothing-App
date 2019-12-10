@@ -12,6 +12,9 @@ import Checkout from './components/checkout/Checkout';
 import {auth, createUserProfile} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/actions/user.actions';
 import { selectCurrentUser } from './redux/selectors/user.selector';
+import axios from 'axios';
+
+axios.defaults.baseURL = "http://localhost:5000";
 
 const App = ({currentUser, setCurrentUser}) => {
 
