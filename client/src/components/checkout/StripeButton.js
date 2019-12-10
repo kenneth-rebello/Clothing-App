@@ -1,5 +1,6 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 const StripeButton = ({ price }) => {
 
@@ -7,8 +8,15 @@ const StripeButton = ({ price }) => {
     const publishableKey = 'pk_test_eJEh8Ae2IMY6e4AIwpOp6IFF00aLotrRau';
 
     const onToken = token => {
-        console.log(token);
-        alert('Payment Successful');
+        const body = {
+            amount: priceForStripe,
+            token
+        }
+        axios.post('/payment', body).then(response => {
+            alert('Payment Succesful');
+        }).catch(error => {
+            console.log('Payment error', JSON.parse(error));
+        })
     }
 
     return (
