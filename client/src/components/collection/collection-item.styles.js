@@ -26,8 +26,8 @@ export const CollectionItemContainer = styled.div`
       .bg-image {
         opacity: unset;
       }
-      button{
-        opacity: unset;
+      button:{
+        display:unset;
       }
     }
   }

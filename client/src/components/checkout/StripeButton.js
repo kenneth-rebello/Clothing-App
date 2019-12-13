@@ -9,7 +9,6 @@ const StripeButton = ({ price }) => {
 
     const onToken = token => {
 
-        console.log(token)
         axios({
             url: 'payment',
             method: 'post',
@@ -30,7 +29,7 @@ const StripeButton = ({ price }) => {
             name="Crown Clothing"
             billingAddress
             shippingAddress
-            image='https://sendeyo.com/up/d/f3eb2117da'
+            image={require('../../assets/crown.svg')}
             description={`Your total is $${price}`}
             amount={priceForStripe}
             panelLabel="Pay Now"
