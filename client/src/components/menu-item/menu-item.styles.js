@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MenuItemDiv = styled.div`
     min-width: 30%;
-    height: 240px;
+    height: ${({size}) => (size ? '380px' : '240px')};
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -35,6 +35,10 @@ export const MenuItemDiv = styled.div`
     &:last-child {
       margin-left: 7.5px;
     }
+
+    @media screen and (max-width: 800px) {
+      height: 200px; 
+    }
 `
 
 export const ImageContainer = styled.div`
@@ -45,7 +49,8 @@ export const ImageContainer = styled.div`
 `
 
 export const ContentDiv = styled.div`
-    height: 90px;
+    height: 5rem;
+    width:8rem;
     padding: 0 25px;
     display: flex;
     flex-direction: column;
@@ -55,6 +60,9 @@ export const ContentDiv = styled.div`
     background-color: white;
     opacity: 0.7;
     position: absolute;
+    @media screen and (max-width: 800px) {
+      width: 4rem;   
+  }
 `
 
 export const Title = styled.h2`
@@ -62,9 +70,12 @@ export const Title = styled.h2`
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
+    @media screen and (max-width: 800px) {
+      font-size: 15px;   
+  }
 `
 
 export const Subtitle = styled.span`
     font-weight: lighter;
-    font-size: 16px;
+    font-size: 10px;
 `

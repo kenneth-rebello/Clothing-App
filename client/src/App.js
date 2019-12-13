@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import { Route,Switch,BrowserRouter as Router, Redirect} from 'react-router-dom';
-import './App.css';
 import {connect} from 'react-redux';
 
 import Header from './components/utils/header/Header';
@@ -8,6 +7,8 @@ import Homepage from './components/home/Homepage';
 import Shop from './components/shop/Shop';
 import Auth from './components/auth/Auth';
 import Checkout from './components/checkout/Checkout';
+
+import { GlobalStyle } from './App.styles';
 
 import {auth, createUserProfile} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/actions/user.actions';
@@ -45,6 +46,7 @@ const App = ({currentUser, setCurrentUser}) => {
   return (
     <div>
       <Router>
+        <GlobalStyle/>
         <Header/>
         <Switch>
           <Route exact path="/" component={Homepage}/>
