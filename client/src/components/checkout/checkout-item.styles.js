@@ -17,11 +17,20 @@ padding: 0.1rem;
     width: 8rem;
     height: 9.5rem;
   }
+  @media screen and (max-width: 800px) {
+    img{
+      width: 4.5rem;
+      height:6rem;
+    }
+  }
 `;
 
 export const TextContainer = styled.span`
   align-items: center;
   font-size: 1.2rem;
+  @media screen and (max-width: 800px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const QuantityContainer = styled(TextContainer)`

@@ -3,10 +3,13 @@ import {HomePageContainer} from './homepage.styles.js'
 
 import Directory from './Directory'
 
-const Homepage = () => (
-    <HomePageContainer>
-        <Directory/>
-    </HomePageContainer>
-)
+const Homepage = () => {
+    return (
+        <HomePageContainer>
+            <Directory/>
+        </HomePageContainer>
+    )
+}
+ 
 
 export default Homepage

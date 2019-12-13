@@ -1,14 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, lazy, Suspense } from 'react';
 import { Route,Switch,BrowserRouter as Router, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Header from './components/utils/header/Header';
-import Homepage from './components/home/Homepage';
-import Shop from './components/shop/Shop';
-import Auth from './components/auth/Auth';
-import Checkout from './components/checkout/Checkout';
+import Spinner from './components/with-spinner/Spinner';
 
 import { GlobalStyle } from './App.styles';
+
+import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 
 import {auth, createUserProfile} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/actions/user.actions';
@@ -16,6 +15,11 @@ import { selectCurrentUser } from './redux/selectors/user.selector';
 import axios from 'axios';
 
 axios.defaults.baseURL = "http://localhost:5000";
+
+const Homepage = lazy(() => import('./components/home/Homepage'));
+const Shop = lazy(()=> import('./components/shop/Shop'));
+const Checkout = lazy(() => import('./components/checkout/Checkout'));
+const Auth = lazy(() => import('./components/auth/Auth'));
 
 const App = ({currentUser, setCurrentUser}) => {
 
@@ -49,10 +53,14 @@ const App = ({currentUser, setCurrentUser}) => {
         <GlobalStyle/>
         <Header/>
         <Switch>
-          <Route exact path="/" component={Homepage}/>
-          <Route path="/shop" component={Shop}/>
-          <Route exact path="/checkout" component={Checkout}/>
-          <Route path="/signin" render={()=> currentUser ? (<Redirect to="/"/>):<Auth/>}/>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner/>}>
+              <Route exact path="/" component={Homepage}/>
+              <Route path="/shop" component={Shop}/>
+              <Route exact path="/checkout" component={Checkout}/>
+              <Route path="/signin" render={()=> currentUser ? (<Redirect to="/"/>):<Auth/>}/>
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </Router>
     </div>

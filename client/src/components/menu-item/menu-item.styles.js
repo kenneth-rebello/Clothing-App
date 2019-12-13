@@ -72,10 +72,13 @@ export const Title = styled.h2`
     color: #4a4a4a;
     @media screen and (max-width: 800px) {
       font-size: 15px;   
-  }
+    }
 `
 
 export const Subtitle = styled.span`
     font-weight: lighter;
-    font-size: 10px;
+    font-size: 16px;
+    @media screen and (max-width: 800px) {
+      font-size: 8px;   
+    }
 `
